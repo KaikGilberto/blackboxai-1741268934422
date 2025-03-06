@@ -14,221 +14,160 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'space': ['Space Grotesk', 'sans-serif'],
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'primary': '#10b981',
-                        'secondary': '#065f46',
-                        'dark': '#0f172a',
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
         }
+
         .gradient-text {
-            background: linear-gradient(45deg, #10b981, #065f46);
+            background: linear-gradient(90deg, #10b981, #065f46);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient 3s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .glow {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            transform: rotate(0deg);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #10b981;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(1000px) rotateX(60deg);
+            transform-origin: top;
+            animation: grid 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes grid {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 50px; }
         }
     </style>
 </head>
-<body class="bg-dark text-slate-50">
-    <!-- Header/Navbar -->
+<body class="text-slate-50">
+    <!-- Header -->
     <header class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-slate-800">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-space font-bold gradient-text animate-pulse-slow relative group">
+                <a href="#" class="text-2xl font-space font-bold gradient-text">
                     LoomTech
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all group-hover:w-full"></span>
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <div class="relative group">
-                        <a href="#home" class="text-primary flex items-center space-x-1">
-                            <i class="fas fa-home text-sm"></i>
-                            <span>Home</span>
-                        </a>
-                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></span>
-                    </div>
-                    <div class="relative group">
-                        <a href="#sobre" class="text-slate-300 hover:text-primary transition-all flex items-center space-x-1">
-                            <i class="fas fa-info-circle text-sm"></i>
-                            <span>Sobre</span>
-                        </a>
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-                    </div>
-                    <div class="relative group">
-                        <a href="#servicos" class="text-slate-300 hover:text-primary transition-all flex items-center space-x-1">
-                            <i class="fas fa-cogs text-sm"></i>
-                            <span>Serviços</span>
-                        </a>
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-                    </div>
-                    <div class="relative group">
-                        <a href="portfolio.html" class="text-slate-300 hover:text-primary transition-all flex items-center space-x-1">
-                            <i class="fas fa-briefcase text-sm"></i>
-                            <span>Portfólio</span>
-                        </a>
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-                    </div>
-                    <div class="relative group">
-                        <a href="#contato" class="text-slate-300 hover:text-primary transition-all flex items-center space-x-1">
-                            <i class="fas fa-envelope text-sm"></i>
-                            <span>Contato</span>
-                        </a>
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-                    </div>
-                    <a href="#contato" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full font-medium transition-all hover:scale-105 flex items-center space-x-2 shadow-lg hover:shadow-primary/20">
-                        <i class="fas fa-paper-plane text-sm"></i>
-                        <span>Fale Conosco</span>
+                    <a href="#home" class="nav-link text-slate-300 hover:text-primary">Home</a>
+                    <a href="#servicos" class="nav-link text-slate-300 hover:text-primary">Serviços</a>
+                    <a href="portfolio.html" class="nav-link text-slate-300 hover:text-primary">Portfólio</a>
+                    <a href="#contato" class="nav-link text-slate-300 hover:text-primary">Contato</a>
+                    <a href="#contato" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full transition-all hover:scale-105 glow">
+                        Fale Conosco
                     </a>
                 </div>
-                <button class="md:hidden text-slate-300 hover:text-primary transition-all p-2 hover:bg-slate-800/50 rounded-lg">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="hidden fixed inset-0 bg-dark/95 backdrop-blur-md z-40">
-        <div class="flex flex-col h-full">
-            <div class="flex justify-end p-6">
-                <button class="text-slate-300 hover:text-primary transition-all p-2 hover:bg-slate-800/50 rounded-lg">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="flex flex-col items-center justify-center flex-1 space-y-8">
-                <a href="#home" class="text-primary text-lg flex items-center space-x-2 group">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                    <span class="block max-w-full h-0.5 bg-primary"></span>
-                </a>
-                <a href="#sobre" class="text-slate-300 hover:text-primary transition-all text-lg flex items-center space-x-2 group">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Sobre</span>
-                    <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary"></span>
-                </a>
-                <a href="#servicos" class="text-slate-300 hover:text-primary transition-all text-lg flex items-center space-x-2 group">
-                    <i class="fas fa-cogs"></i>
-                    <span>Serviços</span>
-                    <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary"></span>
-                </a>
-                <a href="portfolio.html" class="text-slate-300 hover:text-primary transition-all text-lg flex items-center space-x-2 group">
-                    <i class="fas fa-briefcase"></i>
-                    <span>Portfólio</span>
-                    <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary"></span>
-                </a>
-                <a href="#contato" class="text-slate-300 hover:text-primary transition-all text-lg flex items-center space-x-2 group">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contato</span>
-                    <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary"></span>
-                </a>
-                <a href="#contato" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium transition-all hover:scale-105 flex items-center space-x-2 mt-4 shadow-lg hover:shadow-primary/20">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Fale Conosco</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
+        <div class="tech-grid"></div>
         <div class="container mx-auto px-6 py-32 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-5xl md:text-7xl font-space font-bold mb-8 gradient-text">
+                <h1 class="text-5xl md:text-7xl font-space font-bold mb-8 gradient-text fade-up">
                     Transformando Ideias em Realidade Digital
                 </h1>
-                <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed">
+                <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed fade-up">
                     Somos especialistas em desenvolvimento de software, criando soluções inovadoras e personalizadas para impulsionar seu negócio.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#contato" class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-medium transition-all hover:scale-105 flex items-center justify-center space-x-2 shadow-lg hover:shadow-primary/20">
-                        <i class="fas fa-rocket"></i>
-                        <span>Iniciar Projeto</span>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-up">
+                    <a href="#contato" class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full transition-all hover:scale-105 glow">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Iniciar Projeto
                     </a>
-                    <a href="#servicos" class="w-full sm:w-auto border border-slate-700 hover:border-primary text-slate-300 hover:text-primary px-8 py-4 rounded-full font-medium transition-all hover:scale-105 flex items-center justify-center space-x-2">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Saiba Mais</span>
+                    <a href="#servicos" class="w-full sm:w-auto border border-slate-700 hover:border-primary text-slate-300 hover:text-primary px-8 py-4 rounded-full transition-all hover:scale-105">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Saiba Mais
                     </a>
-                </div>
-            </div>
-        </div>
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#sobre" class="text-slate-400 hover:text-primary transition-colors">
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- Sobre Section -->
-    <section id="sobre" class="py-20 bg-slate-900/50">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-space font-bold mb-12 gradient-text text-center">
-                    Sobre a LoomTech
-                </h2>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">
-                            A LoomTech é uma empresa de desenvolvimento de software comprometida com a excelência e inovação. Nossa missão é transformar ideias em soluções digitais que impactam positivamente nossos clientes e seus usuários.
-                        </p>
-                        <p class="text-lg text-slate-300 mb-8 leading-relaxed">
-                            Com uma equipe altamente qualificada e apaixonada por tecnologia, oferecemos serviços personalizados que atendem às necessidades específicas de cada projeto.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <div class="flex items-center space-x-2 text-primary">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Qualidade Garantida</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-primary">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Suporte Contínuo</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-primary">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Tecnologias Modernas</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="aspect-square bg-gradient-to-br from-primary to-secondary rounded-full opacity-20 absolute inset-0"></div>
-                        <div class="relative z-10 grid grid-cols-2 gap-6">
-                            <div class="space-y-6">
-                                <div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg border border-slate-700">
-                                    <div class="text-4xl font-bold gradient-text mb-2">5+</div>
-                                    <div class="text-slate-300">Anos de Experiência</div>
-                                </div>
-                                <div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg border border-slate-700">
-                                    <div class="text-4xl font-bold gradient-text mb-2">50+</div>
-                                    <div class="text-slate-300">Projetos Entregues</div>
-                                </div>
-                            </div>
-                            <div class="space-y-6 mt-12">
-                                <div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg border border-slate-700">
-                                    <div class="text-4xl font-bold gradient-text mb-2">30+</div>
-                                    <div class="text-slate-300">Clientes Satisfeitos</div>
-                                </div>
-                                <div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg border border-slate-700">
-                                    <div class="text-4xl font-bold gradient-text mb-2">15+</div>
-                                    <div class="text-slate-300">Especialistas</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -237,161 +176,89 @@
     <!-- Serviços Section -->
     <section id="servicos" class="py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-space font-bold mb-12 gradient-text text-center">
+            <h2 class="text-4xl font-space font-bold mb-12 gradient-text text-center fade-up">
                 Nossos Serviços
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Desenvolvimento Web -->
-                <div class="group">
-                    <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-lg hover:border-primary transition-all">
-                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all">
-                            <i class="fas fa-laptop-code text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-space font-bold mb-4">Desenvolvimento Web</h3>
-                        <p class="text-slate-300 mb-6">
-                            Criamos websites e aplicações web modernas, responsivas e otimizadas para diferentes dispositivos e navegadores.
-                        </p>
-                        <ul class="space-y-2 text-slate-300">
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>Sites Institucionais</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>E-commerce</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>Sistemas Web</span>
-                            </li>
-                        </ul>
+                <!-- Web -->
+                <div class="card-hover fade-up bg-slate-800/50 p-6 rounded-lg border border-slate-700">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-2xl text-primary"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-4">Desenvolvimento Web</h3>
+                    <p class="text-slate-300">
+                        Criamos websites e aplicações web modernas e responsivas.
+                    </p>
                 </div>
 
-                <!-- Desenvolvimento Mobile -->
-                <div class="group">
-                    <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-lg hover:border-primary transition-all">
-                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all">
-                            <i class="fas fa-mobile-alt text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-space font-bold mb-4">Desenvolvimento Mobile</h3>
-                        <p class="text-slate-300 mb-6">
-                            Desenvolvemos aplicativos móveis nativos e híbridos para iOS e Android, focando na experiência do usuário.
-                        </p>
-                        <ul class="space-y-2 text-slate-300">
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>Apps iOS</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>Apps Android</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>PWA</span>
-                            </li>
-                        </ul>
+                <!-- Mobile -->
+                <div class="card-hover fade-up bg-slate-800/50 p-6 rounded-lg border border-slate-700">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-primary"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-4">Apps Mobile</h3>
+                    <p class="text-slate-300">
+                        Desenvolvemos aplicativos móveis para iOS e Android.
+                    </p>
                 </div>
 
-                <!-- Consultoria em TI -->
-                <div class="group">
-                    <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-lg hover:border-primary transition-all">
-                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all">
-                            <i class="fas fa-lightbulb text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-space font-bold mb-4">Consultoria em TI</h3>
-                        <p class="text-slate-300 mb-6">
-                            Oferecemos consultoria especializada para ajudar sua empresa a tomar as melhores decisões tecnológicas.
-                        </p>
-                        <ul class="space-y-2 text-slate-300">
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>Análise de Sistemas</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>Arquitetura de Software</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fas fa-check text-primary text-sm"></i>
-                                <span>Segurança da Informação</span>
-                            </li>
-                        </ul>
+                <!-- Desktop -->
+                <div class="card-hover fade-up bg-slate-800/50 p-6 rounded-lg border border-slate-700">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-desktop text-2xl text-primary"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-4">Software Desktop</h3>
+                    <p class="text-slate-300">
+                        Criamos soluções desktop personalizadas para sua empresa.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contato Section -->
-    <section id="contato" class="py-20 bg-slate-900/50">
+    <section id="contato" class="py-20 bg-slate-800/30">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-space font-bold mb-12 gradient-text text-center">
-                    Entre em Contato
-                </h2>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-space font-bold mb-6">Fale Conosco</h3>
-                        <p class="text-slate-300 mb-8">
-                            Estamos prontos para ajudar no seu próximo projeto. Entre em contato conosco para uma consulta gratuita.
-                        </p>
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-envelope text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-space font-bold mb-2">Email</h4>
-                                    <p class="text-slate-300">contato@loomtech.com.br</p>
-                                </div>
+            <h2 class="text-4xl font-space font-bold mb-12 gradient-text text-center fade-up">
+                Entre em Contato
+            </h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="slide-in">
+                    <h3 class="text-2xl font-bold mb-6">Fale Conosco</h3>
+                    <p class="text-slate-300 mb-8">
+                        Estamos prontos para ajudar no seu próximo projeto.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-primary"></i>
                             </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-phone text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-space font-bold mb-2">Telefone</h4>
-                                    <p class="text-slate-300">(11) 99999-9999</p>
-                                </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-slate-300">contato@loomtech.com</p>
                             </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-map-marker-alt text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-space font-bold mb-2">Endereço</h4>
-                                    <p class="text-slate-300">
-                                        Av. Paulista, 1000<br>
-                                        São Paulo - SP
-                                    </p>
-                                </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Telefone</h4>
+                                <p class="text-slate-300">(11) 99999-9999</p>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <form class="space-y-6">
-                            <div>
-                                <label class="block text-sm font-medium mb-2" for="nome">Nome</label>
-                                <input type="text" id="nome" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary transition-colors" placeholder="Seu nome">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2" for="email">Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary transition-colors" placeholder="seu@email.com">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2" for="mensagem">Mensagem</label>
-                                <textarea id="mensagem" rows="4" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary transition-colors" placeholder="Sua mensagem"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-all hover:scale-105 flex items-center justify-center space-x-2 shadow-lg hover:shadow-primary/20">
-                                <i class="fas fa-paper-plane"></i>
-                                <span>Enviar Mensagem</span>
-                            </button>
-                        </form>
-                    </div>
                 </div>
+                <form class="slide-in">
+                    <div class="space-y-6">
+                        <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary">
+                        <input type="email" placeholder="Seu email" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary">
+                        <textarea rows="4" placeholder="Sua mensagem" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary"></textarea>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-all hover:scale-105 glow">
+                            Enviar Mensagem
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -404,51 +271,41 @@
                     © 2024 LoomTech. Todos os direitos reservados.
                 </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">Termos de Uso</a>
-                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">Política de Privacidade</a>
-                    <a href="doc.html" class="text-slate-400 hover:text-primary transition-colors">Documentação</a>
+                    <a href="#" class="text-slate-400 hover:text-primary">Termos</a>
+                    <a href="#" class="text-slate-400 hover:text-primary">Privacidade</a>
+                    <a href="doc.html" class="text-slate-400 hover:text-primary">Documentação</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile menu toggle
-            const menuButton = document.querySelector('button.md\\:hidden');
-            const mobileMenu = document.querySelector('.fixed.inset-0.bg-dark');
-            
-            if (menuButton && mobileMenu) {
-                const closeButton = mobileMenu.querySelector('.fa-times').parentElement;
-                const mobileLinks = mobileMenu.querySelectorAll('a');
+        // Animações no Scroll
+        function handleScroll() {
+            const elements = document.querySelectorAll('.fade-up, .slide-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight * 0.9) {
+                    element.classList.add('visible');
+                }
+            });
+        }
 
-                menuButton.addEventListener('click', () => {
-                    mobileMenu.classList.remove('hidden');
-                });
+        // Inicializar animações
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
 
-                closeButton.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
                     });
-                });
-            }
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+                }
             });
         });
     </script>
