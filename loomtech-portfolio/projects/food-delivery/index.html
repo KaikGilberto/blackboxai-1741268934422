@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Delivery de Comida</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .food-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-red-600">
+                    Food<span class="text-yellow-500">Express</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-red-600">Home</a>
+                    <a href="#restaurantes" class="text-gray-600 hover:text-red-600">Restaurantes</a>
+                    <a href="#categorias" class="text-gray-600 hover:text-red-600">Categorias</a>
+                    <a href="#sobre" class="text-gray-600 hover:text-red-600">Sobre</a>
+                    <a href="#" class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700">
+                        <i class="fas fa-shopping-cart mr-2"></i>
+                        Carrinho (0)
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-red-600 to-yellow-500">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-5xl font-bold mb-6">
+                    Peça sua comida favorita agora!
+                </h1>
+                <p class="text-xl mb-12">
+                    Entrega rápida, restaurantes de qualidade e os melhores pratos da cidade.
+                </p>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex gap-4">
+                        <input type="text" placeholder="Digite seu endereço..." class="flex-1 p-3 border rounded">
+                        <button class="bg-red-600 text-white px-8 py-3 rounded hover:bg-red-700">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categorias" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Categorias</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="text-center">
+                    <div class="bg-white p-6 rounded-full shadow-lg mb-4 hover:shadow-xl transition-shadow">
+                        <img src="https://via.placeholder.com/64" alt="Pizza" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="font-semibold">Pizza</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white p-6 rounded-full shadow-lg mb-4 hover:shadow-xl transition-shadow">
+                        <img src="https://via.placeholder.com/64" alt="Hambúrguer" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="font-semibold">Hambúrguer</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white p-6 rounded-full shadow-lg mb-4 hover:shadow-xl transition-shadow">
+                        <img src="https://via.placeholder.com/64" alt="Japonesa" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="font-semibold">Japonesa</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white p-6 rounded-full shadow-lg mb-4 hover:shadow-xl transition-shadow">
+                        <img src="https://via.placeholder.com/64" alt="Brasileira" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="font-semibold">Brasileira</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white p-6 rounded-full shadow-lg mb-4 hover:shadow-xl transition-shadow">
+                        <img src="https://via.placeholder.com/64" alt="Sobremesas" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="font-semibold">Sobremesas</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white p-6 rounded-full shadow-lg mb-4 hover:shadow-xl transition-shadow">
+                        <img src="https://via.placeholder.com/64" alt="Bebidas" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="font-semibold">Bebidas</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Restaurants -->
+    <section id="restaurantes" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Restaurantes Populares</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Restaurant Card 1 -->
+                <div class="food-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x200" alt="Restaurante" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">Pizza Express</h3>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">
+                                4.8 <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-600"></i>
+                            2km - 25-35 min
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">
+                                <i class="fas fa-motorcycle mr-2 text-red-600"></i>
+                                Grátis
+                            </span>
+                            <a href="#" class="text-red-600 hover:text-red-700">Ver Cardápio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Card 2 -->
+                <div class="food-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x200" alt="Restaurante" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">Burger King</h3>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">
+                                4.5 <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-600"></i>
+                            1.5km - 20-30 min
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">
+                                <i class="fas fa-motorcycle mr-2 text-red-600"></i>
+                                R$ 5,00
+                            </span>
+                            <a href="#" class="text-red-600 hover:text-red-700">Ver Cardápio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Card 3 -->
+                <div class="food-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x200" alt="Restaurante" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">Sushi Master</h3>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">
+                                4.9 <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-600"></i>
+                            3km - 30-45 min
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">
+                                <i class="fas fa-motorcycle mr-2 text-red-600"></i>
+                                R$ 7,00
+                            </span>
+                            <a href="#" class="text-red-600 hover:text-red-700">Ver Cardápio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download -->
+    <section class="py-20 bg-gradient-to-r from-red-600 to-yellow-500 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Baixe nosso App</h2>
+                    <p class="text-lg mb-8">
+                        Peça sua comida favorita de forma mais rápida e ganhe descontos exclusivos!
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-black text-white px-6 py-3 rounded-lg flex items-center">
+                            <i class="fab fa-apple text-3xl mr-3"></i>
+                            <div>
+                                <div class="text-xs">Baixar na</div>
+                                <div class="text-xl font-semibold">App Store</div>
+                            </div>
+                        </a>
+                        <a href="#" class="bg-black text-white px-6 py-3 rounded-lg flex items-center">
+                            <i class="fab fa-google-play text-3xl mr-3"></i>
+                            <div>
+                                <div class="text-xs">Disponível no</div>
+                                <div class="text-xl font-semibold">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/400" alt="App" class="max-w-sm mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">FoodExpress</h4>
+                    <p class="text-gray-400">
+                        Sua comida favorita em minutos.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Restaurantes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Categorias</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sobre</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            (11) 99999-9999
+                        </li>
+                        <li class="text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            contato@foodexpress.com
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                © 2024 FoodExpress. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
