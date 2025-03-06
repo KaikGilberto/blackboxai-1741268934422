@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - LoomTech</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'space': ['Space Grotesk', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#6366f1',
+                        'secondary': '#3730a3',
+                        'dark': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #6366f1, #3730a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        pre {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-50">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-slate-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-space font-bold gradient-text">
+                    LoomTech
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-slate-300 hover:text-primary transition-colors">Home</a>
+                    <a href="portfolio.html" class="text-slate-300 hover:text-primary transition-colors">Portfólio</a>
+                    <a href="#" class="text-primary">Documentação</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Documentation Content -->
+    <div class="pt-32 pb-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-space font-bold mb-6 gradient-text">
+                Documentação do Site
+            </h1>
+            <p class="text-xl text-slate-300 mb-12">
+                Guia completo sobre a estrutura do site e como fazer modificações
+            </p>
+
+            <!-- Table of Contents -->
+            <div class="mb-12 p-6 bg-slate-900 rounded-lg border border-slate-800">
+                <h2 class="text-2xl font-space font-bold mb-4">Índice</h2>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#estrutura" class="text-primary hover:text-primary/80 transition-colors">1. Estrutura do Projeto</a>
+                    </li>
+                    <li>
+                        <a href="#tecnologias" class="text-primary hover:text-primary/80 transition-colors">2. Tecnologias Utilizadas</a>
+                    </li>
+                    <li>
+                        <a href="#modificacoes" class="text-primary hover:text-primary/80 transition-colors">3. Como Fazer Modificações</a>
+                    </li>
+                    <li>
+                        <a href="#componentes" class="text-primary hover:text-primary/80 transition-colors">4. Componentes do Site</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="text-primary hover:text-primary/80 transition-colors">5. Gerenciando o Portfólio</a>
+                    </li>
+                    <li>
+                        <a href="#otimizacao" class="text-primary hover:text-primary/80 transition-colors">6. Otimização e Performance</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Estrutura do Projeto -->
+            <section id="estrutura" class="mb-16">
+                <h2 class="text-3xl font-space font-bold mb-6">1. Estrutura do Projeto</h2>
+                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
+                    <pre class="text-slate-300 mb-6">
+loomtech-portfolio/
+├── index.html      # Página principal
+├── portfolio.html  # Página de portfólio
+└── doc.html       # Esta documentação</pre>
+                    
+                    <h3 class="text-xl font-space font-bold mb-4">Descrição dos Arquivos</h3>
+                    <ul class="space-y-4 text-slate-300">
+                        <li>
+                            <strong class="text-white">index.html:</strong> Página principal do site contendo:
+                            <ul class="list-disc ml-6 mt-2 space-y-2">
+                                <li>Header com navegação</li>
+                                <li>Seção Hero</li>
+                                <li>Seção Sobre</li>
+                                <li>Seção Serviços</li>
+                                <li>Seção Contato</li>
+                                <li>Footer</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong class="text-white">portfolio.html:</strong> Página de portfólio contendo:
+                            <ul class="list-disc ml-6 mt-2 space-y-2">
+                                <li>Grid de projetos</li>
+                                <li>Sistema de filtros</li>
+                                <li>Cards de projetos</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong class="text-white">doc.html:</strong> Esta documentação completa do site
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Tecnologias Utilizadas -->
+            <section id="tecnologias" class="mb-16">
+                <h2 class="text-3xl font-space font-bold mb-6">2. Tecnologias Utilizadas</h2>
+                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
+                    <ul class="space-y-4 text-slate-300">
+                        <li>
+                            <strong class="text-white">Tailwind CSS:</strong>
+                            <p class="mt-2">Framework CSS utilizado para estilização através de classes utilitárias. Incluído via CDN:</p>
+                            <pre class="bg-slate-800 p-4 rounded-lg mt-2 text-sm">
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</pre>
+                        </li>
+                        <li>
+                            <strong class="text-white">Google Fonts:</strong>
+                            <p class="mt-2">Fontes utilizadas: Space Grotesk para títulos e Inter para texto. Incluídas via CDN:</p>
+                            <pre class="bg-slate-800 p-4 rounded-lg mt-2 text-sm">
+&lt;link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"&gt;</pre>
+                        </li>
+                        <li>
+                            <strong class="text-white">Font Awesome:</strong>
+                            <p class="mt-2">Biblioteca de ícones. Incluída via CDN:</p>
+                            <pre class="bg-slate-800 p-4 rounded-lg mt-2 text-sm">
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;</pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Como Fazer Modificações -->
+            <section id="modificacoes" class="mb-16">
+                <h2 class="text-3xl font-space font-bold mb-6">3. Como Fazer Modificações</h2>
+                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
+                    <h3 class="text-xl font-space font-bold mb-4">Cores e Tema</h3>
+                    <p class="text-slate-300 mb-4">
+                        As cores principais do tema são definidas no Tailwind Config de cada página:
+                    </p>
+                    <pre class="bg-slate-800 p-4 rounded-lg mb-6 text-sm">
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                'primary': '#6366f1',    // Cor principal
+                'secondary': '#3730a3',   // Cor secundária
+                'dark': '#0f172a',        // Cor de fundo
+            }
+        }
+    }
+}</pre>
+
+                    <h3 class="text-xl font-space font-bold mb-4">Textos e Conteúdo</h3>
+                    <p class="text-slate-300 mb-4">
+                        Para modificar textos, localize a seção desejada no HTML e altere o conteúdo dentro das tags.
+                        Exemplo para alterar o título principal:
+                    </p>
+                    <pre class="bg-slate-800 p-4 rounded-lg mb-6 text-sm">
+&lt;h1 class="text-5xl font-space font-bold mb-6 gradient-text"&gt;
+    Seu novo título aqui
+&lt;/h1&gt;</pre>
+
+                    <h3 class="text-xl font-space font-bold mb-4">Links e Navegação</h3>
+                    <p class="text-slate-300 mb-4">
+                        Os links de navegação estão no header de cada página. Para modificar:
+                    </p>
+                    <pre class="bg-slate-800 p-4 rounded-lg mb-6 text-sm">
+&lt;div class="hidden md:flex space-x-8"&gt;
+    &lt;a href="index.html" class="text-slate-300 hover:text-primary transition-colors"&gt;Home&lt;/a&gt;
+    &lt;a href="portfolio.html" class="text-slate-300 hover:text-primary transition-colors"&gt;Portfólio&lt;/a&gt;
+    ...
+&lt;/div&gt;</pre>
+                </div>
+            </section>
+
+            <!-- Componentes do Site -->
+            <section id="componentes" class="mb-16">
+                <h2 class="text-3xl font-space font-bold mb-6">4. Componentes do Site</h2>
+                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
+                    <h3 class="text-xl font-space font-bold mb-4">Header/Navbar</h3>
+                    <p class="text-slate-300 mb-4">
+                        O header é fixo no topo e inclui o logo e links de navegação. Para mobile, há um menu hamburguer
+                        que abre um menu fullscreen.
+                    </p>
+
+                    <h3 class="text-xl font-space font-bold mb-4">Seções</h3>
+                    <p class="text-slate-300 mb-4">
+                        Cada seção segue um padrão similar:
+                    </p>
+                    <pre class="bg-slate-800 p-4 rounded-lg mb-6 text-sm">
+&lt;section id="secao" class="py-20"&gt;
+    &lt;div class="container mx-auto px-6"&gt;
+        &lt;h2 class="text-4xl font-space font-bold mb-12 text-center gradient-text"&gt;
+            Título da Seção
+        &lt;/h2&gt;
+        &lt;!-- Conteúdo da seção --&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</pre>
+
+                    <h3 class="text-xl font-space font-bold mb-4">Cards</h3>
+                    <p class="text-slate-300 mb-4">
+                        Os cards são utilizados no portfólio e na seção de serviços:
+                    </p>
+                    <pre class="bg-slate-800 p-4 rounded-lg mb-6 text-sm">
+&lt;div class="p-6 bg-slate-900 rounded-lg border border-slate-800"&gt;
+    &lt;h3 class="text-xl font-space font-bold mb-2"&gt;Título do Card&lt;/h3&gt;
+    &lt;p class="text-slate-300 mb-4"&gt;Descrição do card&lt;/p&gt;
+    &lt;!-- Mais conteúdo --&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </section>
+
+            <!-- Gerenciando o Portfólio -->
+            <section id="portfolio" class="mb-16">
+                <h2 class="text-3xl font-space font-bold mb-6">5. Gerenciando o Portfólio</h2>
+                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
+                    <h3 class="text-xl font-space font-bold mb-4">Adicionando Novos Projetos</h3>
+                    <p class="text-slate-300 mb-4">
+                        Para adicionar um novo projeto ao portfólio, copie a estrutura do card de projeto e modifique:
+                    </p>
+                    <pre class="bg-slate-800 p-4 rounded-lg mb-6 text-sm">
+&lt;div class="group" data-category="categoria"&gt;
+    &lt;div class="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800"&gt;
+        &lt;div class="aspect-video bg-slate-800 flex items-center justify-center"&gt;
+            &lt;i class="fas fa-icon text-6xl text-primary/20"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="p-6"&gt;
+            &lt;h3 class="text-xl font-space font-bold mb-2"&gt;Nome do Projeto&lt;/h3&gt;
+            &lt;p class="text-slate-300 mb-4"&gt;Descrição do projeto&lt;/p&gt;
+            &lt;div class="flex flex-wrap gap-2 mb-4"&gt;
+                &lt;span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"&gt;Tecnologia 1&lt;/span&gt;
+                &lt;span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"&gt;Tecnologia 2&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors"&gt;
+                Ver Detalhes
+                &lt;i class="fas fa-arrow-right ml-2"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+                    <h3 class="text-xl font-space font-bold mb-4">Categorias de Projetos</h3>
+                    <p class="text-slate-300 mb-4">
+                        As categorias são definidas no atributo data-category e nos botões de filtro:
+                    </p>
+                    <pre class="bg-slate-800 p-4 rounded-lg mb-6 text-sm">
+&lt;!-- Botão de filtro --&gt;
+&lt;button class="px-6 py-2 rounded-full bg-dark border border-slate-800" data-filter="categoria"&gt;
+    Nome da Categoria
+&lt;/button&gt;
+
+&lt;!-- Card do projeto --&gt;
+&lt;div class="group" data-category="categoria"&gt;
+    ...
+&lt;/div&gt;</pre>
+                </div>
+            </section>
+
+            <!-- Otimização e Performance -->
+            <section id="otimizacao" class="mb-16">
+                <h2 class="text-3xl font-space font-bold mb-6">6. Otimização e Performance</h2>
+                <div class="p-6 bg-slate-900 rounded-lg border border-slate-800">
+                    <h3 class="text-xl font-space font-bold mb-4">Imagens</h3>
+                    <p class="text-slate-300 mb-4">
+                        - Use imagens otimizadas e comprimidas<br>
+                        - Defina width e height para evitar layout shift<br>
+                        - Considere usar lazy loading para imagens abaixo da dobra
+                    </p>
+
+                    <h3 class="text-xl font-space font-bold mb-4">JavaScript</h3>
+                    <p class="text-slate-300 mb-4">
+                        - O JavaScript é mínimo e focado em funcionalidades essenciais<br>
+                        - Scripts são carregados no final do body<br>
+                        - Event listeners são adicionados após o DOMContentLoaded
+                    </p>
+
+                    <h3 class="text-xl font-space font-bold mb-4">CSS</h3>
+                    <p class="text-slate-300 mb-4">
+                        - Tailwind CSS é carregado via CDN para desenvolvimento<br>
+                        - Para produção, considere compilar e purgar o CSS não utilizado<br>
+                        - As classes são organizadas de forma consistente
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-400 mb-4 md:mb-0">
+                    © 2024 LoomTech. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">Termos de Uso</a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
