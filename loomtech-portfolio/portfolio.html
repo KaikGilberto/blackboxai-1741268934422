@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - LoomTech</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'space': ['Space Grotesk', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#6366f1',
+                        'secondary': '#3730a3',
+                        'dark': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #6366f1, #3730a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-50">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-slate-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-space font-bold gradient-text">
+                    LoomTech
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-slate-300 hover:text-primary transition-colors">Home</a>
+                    <a href="index.html#sobre" class="text-slate-300 hover:text-primary transition-colors">Sobre</a>
+                    <a href="index.html#servicos" class="text-slate-300 hover:text-primary transition-colors">Serviços</a>
+                    <a href="#" class="text-primary">Portfólio</a>
+                    <a href="index.html#contato" class="text-slate-300 hover:text-primary transition-colors">Contato</a>
+                </div>
+                <button class="md:hidden text-slate-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="hidden fixed inset-0 bg-dark z-40 p-6">
+        <div class="flex justify-end">
+            <button class="text-slate-300">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-6 items-center mt-20">
+            <a href="index.html" class="text-slate-300 hover:text-primary transition-colors text-lg">Home</a>
+            <a href="index.html#sobre" class="text-slate-300 hover:text-primary transition-colors text-lg">Sobre</a>
+            <a href="index.html#servicos" class="text-slate-300 hover:text-primary transition-colors text-lg">Serviços</a>
+            <a href="#" class="text-primary text-lg">Portfólio</a>
+            <a href="index.html#contato" class="text-slate-300 hover:text-primary transition-colors text-lg">Contato</a>
+        </div>
+    </div>
+
+    <!-- Portfolio Header -->
+    <section class="pt-32 pb-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-space font-bold mb-6 gradient-text text-center">
+                Nosso Portfólio
+            </h1>
+            <p class="text-xl text-slate-300 text-center max-w-3xl mx-auto mb-12">
+                Conheça alguns dos projetos que desenvolvemos, demonstrando nossa expertise em diferentes áreas da tecnologia
+            </p>
+
+            <!-- Filtros -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="px-6 py-2 rounded-full bg-primary text-white" data-filter="all">
+                    Todos
+                </button>
+                <button class="px-6 py-2 rounded-full bg-dark border border-slate-800 hover:border-primary transition-colors" data-filter="web">
+                    Web
+                </button>
+                <button class="px-6 py-2 rounded-full bg-dark border border-slate-800 hover:border-primary transition-colors" data-filter="mobile">
+                    Mobile
+                </button>
+                <button class="px-6 py-2 rounded-full bg-dark border border-slate-800 hover:border-primary transition-colors" data-filter="desktop">
+                    Desktop
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="pb-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projeto 1 -->
+                <div class="group" data-category="web">
+                    <div class="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-6xl text-primary/20"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-space font-bold mb-2">E-commerce Dashboard</h3>
+                            <p class="text-slate-300 mb-4">
+                                Dashboard completo para gestão de e-commerce com análise de vendas em tempo real
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Node.js</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">MongoDB</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                                Ver Detalhes
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="group" data-category="mobile">
+                    <div class="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-6xl text-primary/20"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-space font-bold mb-2">App de Delivery</h3>
+                            <p class="text-slate-300 mb-4">
+                                Aplicativo mobile para delivery com rastreamento em tempo real
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React Native</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Firebase</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Google Maps</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                                Ver Detalhes
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="group" data-category="desktop">
+                    <div class="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center">
+                            <i class="fas fa-desktop text-6xl text-primary/20"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-space font-bold mb-2">Sistema de Gestão</h3>
+                            <p class="text-slate-300 mb-4">
+                                Software desktop para gestão empresarial completa
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Electron</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">PostgreSQL</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                                Ver Detalhes
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 4 -->
+                <div class="group" data-category="web">
+                    <div class="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center">
+                            <i class="fas fa-globe text-6xl text-primary/20"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-space font-bold mb-2">Website Institucional</h3>
+                            <p class="text-slate-300 mb-4">
+                                Site institucional moderno com blog e área administrativa
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Next.js</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Tailwind</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Strapi</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                                Ver Detalhes
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 5 -->
+                <div class="group" data-category="mobile">
+                    <div class="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center">
+                            <i class="fas fa-wallet text-6xl text-primary/20"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-space font-bold mb-2">App Financeiro</h3>
+                            <p class="text-slate-300 mb-4">
+                                Aplicativo de gestão financeira pessoal com integração bancária
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Flutter</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Node.js</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">MySQL</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                                Ver Detalhes
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 6 -->
+                <div class="group" data-category="web">
+                    <div class="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center">
+                            <i class="fas fa-video text-6xl text-primary/20"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-space font-bold mb-2">Plataforma de Streaming</h3>
+                            <p class="text-slate-300 mb-4">
+                                Plataforma de streaming de vídeos com sistema de assinaturas
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Angular</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Django</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">AWS</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                                Ver Detalhes
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-400 mb-4 md:mb-0">
+                    © 2024 LoomTech. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">Termos de Uso</a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">Política de Privacidade</a>
+                    <a href="doc.html" class="text-slate-400 hover:text-primary transition-colors">Documentação</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.querySelector('button.md\\:hidden');
+        const closeButton = document.querySelector('.fa-times').parentElement;
+        const mobileMenu = document.querySelector('.fixed.inset-0.bg-dark');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio filters
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        const portfolioItems = document.querySelectorAll('[data-category]');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-dark', 'border', 'border-slate-800');
+                });
+
+                // Add active class to clicked button
+                button.classList.remove('bg-dark', 'border', 'border-slate-800');
+                button.classList.add('bg-primary', 'text-white');
+
+                const filter = button.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
