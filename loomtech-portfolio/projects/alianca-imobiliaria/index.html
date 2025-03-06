@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imobiliária Aliança - Seu Imóvel dos Sonhos</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .property-card:hover img {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-blue-600">
+                    Aliança Imobiliária
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="#imoveis" class="text-gray-600 hover:text-blue-600">Imóveis</a>
+                    <a href="#sobre" class="text-gray-600 hover:text-blue-600">Sobre</a>
+                    <a href="#contato" class="text-gray-600 hover:text-blue-600">Contato</a>
+                    <a href="#contato" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
+                        Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-blue-600 to-blue-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-5xl font-bold mb-6">
+                    Encontre o Imóvel dos Seus Sonhos
+                </h1>
+                <p class="text-xl mb-12 text-blue-100">
+                    Os melhores imóveis da região com as melhores condições de pagamento.
+                </p>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <select class="p-2 border rounded">
+                            <option>Tipo de Imóvel</option>
+                            <option>Casa</option>
+                            <option>Apartamento</option>
+                            <option>Terreno</option>
+                        </select>
+                        <select class="p-2 border rounded">
+                            <option>Localização</option>
+                            <option>Centro</option>
+                            <option>Zona Sul</option>
+                            <option>Zona Norte</option>
+                        </select>
+                        <select class="p-2 border rounded">
+                            <option>Preço Máximo</option>
+                            <option>R$ 200.000</option>
+                            <option>R$ 500.000</option>
+                            <option>R$ 1.000.000</option>
+                        </select>
+                        <button class="bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+                            Buscar Imóveis
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section id="imoveis" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Imóveis em Destaque</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Property Card 1 -->
+                <div class="property-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="Casa" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded">
+                            Venda
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Casa de Luxo</h3>
+                        <p class="text-gray-600 mb-4">Centro, São Paulo</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-blue-600">R$ 850.000</span>
+                            <div class="flex space-x-4 text-gray-600">
+                                <span><i class="fas fa-bed mr-2"></i>4</span>
+                                <span><i class="fas fa-bath mr-2"></i>3</span>
+                                <span><i class="fas fa-car mr-2"></i>2</span>
+                            </div>
+                        </div>
+                        <a href="#" class="block text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="property-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Apartamento" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded">
+                            Aluguel
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Apartamento Moderno</h3>
+                        <p class="text-gray-600 mb-4">Zona Sul, São Paulo</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-blue-600">R$ 3.500/mês</span>
+                            <div class="flex space-x-4 text-gray-600">
+                                <span><i class="fas fa-bed mr-2"></i>2</span>
+                                <span><i class="fas fa-bath mr-2"></i>1</span>
+                                <span><i class="fas fa-car mr-2"></i>1</span>
+                            </div>
+                        </div>
+                        <a href="#" class="block text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="property-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Casa" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded">
+                            Venda
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Casa com Piscina</h3>
+                        <p class="text-gray-600 mb-4">Zona Norte, São Paulo</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-blue-600">R$ 1.200.000</span>
+                            <div class="flex space-x-4 text-gray-600">
+                                <span><i class="fas fa-bed mr-2"></i>5</span>
+                                <span><i class="fas fa-bath mr-2"></i>4</span>
+                                <span><i class="fas fa-car mr-2"></i>3</span>
+                            </div>
+                        </div>
+                        <a href="#" class="block text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Entre em Contato</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Informações de Contato</h3>
+                        <div class="space-y-4">
+                            <p class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-blue-600 mr-4"></i>
+                                Av. Paulista, 1000 - São Paulo
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-phone text-blue-600 mr-4"></i>
+                                (11) 99999-9999
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-envelope text-blue-600 mr-4"></i>
+                                contato@aliancaimobiliaria.com.br
+                            </p>
+                        </div>
+                    </div>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Nome" class="w-full p-3 border rounded">
+                        <input type="email" placeholder="Email" class="w-full p-3 border rounded">
+                        <textarea rows="4" placeholder="Mensagem" class="w-full p-3 border rounded"></textarea>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Aliança Imobiliária</h4>
+                    <p class="text-gray-400">
+                        Sua parceira na busca pelo imóvel ideal.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Imóveis</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sobre</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Serviços</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Compra</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Venda</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Aluguel</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Avaliação</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                © 2024 Aliança Imobiliária. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
